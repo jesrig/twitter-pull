@@ -1,0 +1,28 @@
+{% for tweet in params.tweets %}
+<div class="tweet-wrapper">
+    <div class="tweet-profile-image">
+        <img src='{{ tweet.user.profile_image_url }}'/>
+    </div>
+    <div class='tweet-text'>
+        {{ tweet.text}}
+    </div>
+
+  {#
+  $screen_name = $tweet->user->screen_name;
+    print l(t("Follow @$screen_name"),
+    'https://twitter.com/' . $screen_name, array('attributes'=> array(
+    'class' => array('twitter-follow-button'),
+    'data-show-count' => 'false',
+    'data-width' => '75px',
+    )));?>
+
+    <div class="tweet-actions">
+        <?php $tweet_id = $tweet->id?>
+        <?php print l('Reply', "https://twitter.com/intent/tweet?in_reply_to=$tweet_id", array('attributes' => array('class' => 'twitter-reply'))); ?>
+        <?php print l('Retweet', "https://twitter.com/intent/retweet?tweet_id=$tweet_id", array('attributes' => array('class' => 'twitter-retweet'))); ?>
+        <?php print l('Favorite', "https://twitter.com/intent/favorite?tweet_id=$tweet_id", array('attributes' => array('class' => 'twitter-favorite'))); ?>
+    </div>
+  #}
+
+</div>
+{% endfor %}

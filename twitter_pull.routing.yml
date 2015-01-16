@@ -1,0 +1,13 @@
+twitter_pull.tweets:
+  path: '/tweets'
+  defaults:
+    _controller: '\Drupal\twitter_pull\Controller\Twitter_PullController::content'
+    _title: 'Tweets'
+  requirements:
+    _permission: 'access content'
+twitter_pull.settings:
+  path: 'admin/config/services/twitter-settings'
+  defaults:
+    _form: '\Drupal\twitter_pull\Form\TwitterSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
